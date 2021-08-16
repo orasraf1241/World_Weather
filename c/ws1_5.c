@@ -4,20 +4,6 @@
 #include <assert.h>
 
 
-int *copyArray(int *array,int size);
-void printAddresType();
-int strlen(char *str);
-int strcmp(char *str1,char *str2);
-void main()
-{
-    int i=0;
-    int array[5] = {1,2,3,4,5};
-    int *newArray=copyArray(array,5);
-    for (i = 0; i < 5; i++) 
-    {
-        printf(" %d ",newArray[i]);   
-    }
-}
 
 void swap(int *a,int *b)
 {
