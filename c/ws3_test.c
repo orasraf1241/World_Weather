@@ -1,7 +1,11 @@
+/*   * Written by : Or Asraf [ID - 311391874 ]
+ * August 2021
+ * Infinity Labs R&D  */
+
+
 #include<stdio.h> /*PRINTF*/
-#include<stdlib.h> /* malloc free */
 #include <ctype.h> /*tolower*/
-#include <string.h>
+#include <string.h> /* strlen */
 
 #include "ws3.h"
 
@@ -20,9 +24,9 @@ int CheckEnv(char **src,char **dst)
         if(strlen(src[i]) != strlen(dst[i]))
         {
             /*printf("%ld or asraf   %ld ",strlen(src[i]) , strlen(dst[i]));*/
-            return i;
+            return (i);
         }
-        /*
+        /* if you whant to print the env to check
                   for ( j = 0; j < strlen(dst[i]); ++j)
                   {
                       printf("%c",dst[i][j]);
@@ -54,7 +58,7 @@ int checkJosuef()
 int main(int argc, char *argv[], char * envp[])
 {
     char **env = EnviormaenLow(envp);
-    Josuef(5);
+    checkJosuef();
     PtintDataTypes();
 
    if( CheckEnv(envp,env) ==1)
@@ -62,6 +66,5 @@ int main(int argc, char *argv[], char * envp[])
        return 1;
    }
    FreeEnv(env);
-
-    return 0;
+   return 0;
 }
