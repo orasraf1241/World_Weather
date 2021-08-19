@@ -1,7 +1,18 @@
+<<<<<<< HEAD
 #include<stdio.h> /*PRINTF*/
 #include<stdlib.h> /* malloc free */
 #include <ctype.h> /*tolower*/
 #include <string.h>
+=======
+/*   * Written by : Or Asraf [ID - 311391874 ]
+ * August 2021
+ * Infinity Labs R&D  */
+
+
+#include<stdio.h> /*PRINTF*/
+#include <ctype.h> /*tolower*/
+#include <string.h> /* strlen */
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
 
 #include "ws3.h"
 
@@ -20,9 +31,15 @@ int CheckEnv(char **src,char **dst)
         if(strlen(src[i]) != strlen(dst[i]))
         {
             /*printf("%ld or asraf   %ld ",strlen(src[i]) , strlen(dst[i]));*/
+<<<<<<< HEAD
             return i;
         }
         /*
+=======
+            return (i);
+        }
+        /* if you whant to print the env to check
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
                   for ( j = 0; j < strlen(dst[i]); ++j)
                   {
                       printf("%c",dst[i][j]);
@@ -54,7 +71,11 @@ int checkJosuef()
 int main(int argc, char *argv[], char * envp[])
 {
     char **env = EnviormaenLow(envp);
+<<<<<<< HEAD
     Josuef(5);
+=======
+    checkJosuef();
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
     PtintDataTypes();
 
    if( CheckEnv(envp,env) ==1)
@@ -62,6 +83,10 @@ int main(int argc, char *argv[], char * envp[])
        return 1;
    }
    FreeEnv(env);
+<<<<<<< HEAD
 
     return 0;
+=======
+   return 0;
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
 }

@@ -1,8 +1,19 @@
+<<<<<<< HEAD
+=======
+/*Written by : Or Asraf [ID - 311391874]
+August 2021
+Infinity Labs R&D*/
+
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
 #include<stdlib.h> /*malloc and sizeOf */
 #include<string.h> /*strlen */
 #include <stdio.h> /*print */
 #include <ctype.h> /* using in tolower*/
+<<<<<<< HEAD
 #include<math.h> /* using pow*/
+=======
+#include<math.h>   /* using pow*/
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
 
 #include "ws3.h"
 
@@ -23,6 +34,10 @@ void FreeEnv(char **env)
 int CheckSize(char **text)
 {
     int count = 0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
     while(*text)
     {
         text++;
@@ -36,6 +51,10 @@ char **EnviormaenLow(char * envp[])
     int j=0 ,size_str = 0;
     char **env;
     int size = CheckSize(envp);
+<<<<<<< HEAD
+=======
+
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
     env = malloc(sizeof(*env) *(size + 1 ));
     if(env == NULL)
     {
@@ -113,6 +132,10 @@ void PtintDataTypes()
     unsigned long ul = 21;
     long int li =1;
     unsigned long int uli;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
     printf("size of char :%ld "
            "\nsize of unsigned char :%ld "
            "\nsize of signed char  :%ld "
@@ -128,9 +151,12 @@ void PtintDataTypes()
            ,sizeof(s),sizeof(us),sizeof(l),sizeof(ul),sizeof(li)
            ,sizeof(uli));
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
 }
 
