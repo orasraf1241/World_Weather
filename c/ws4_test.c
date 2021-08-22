@@ -16,5 +16,7 @@
 int main()
 {
     PrintStructs();
+    WriteFiles("OrTest.txt");
+
     return 0;
 }
