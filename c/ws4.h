@@ -13,17 +13,16 @@
 #ifndef C_WS4_H
 #define C_WS4_H
 
+#include<stdio.h>
 
 typedef struct print_me
 {
     int value;
-    void(*PrimtMe)(int x);
+
+    void (*Print)(int x);
+
 } print_me;
 
-void PrintMe(int x)
-{
-    printf("%d ",x);
-}
 
 void PrintStructs();
 

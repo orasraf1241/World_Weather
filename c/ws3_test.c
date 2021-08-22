@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-#include<stdio.h> /*PRINTF*/
-#include<stdlib.h> /* malloc free */
-#include <ctype.h> /*tolower*/
-#include <string.h>
-=======
 /*   * Written by : Or Asraf [ID - 311391874 ]
  * August 2021
  * Infinity Labs R&D  */
@@ -12,7 +6,6 @@
 #include<stdio.h> /*PRINTF*/
 #include <ctype.h> /*tolower*/
 #include <string.h> /* strlen */
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
 
 #include "ws3.h"
 
@@ -21,6 +14,7 @@ int CheckEnv(char **src,char **dst)
 {
     int i =0;
     int j =0;
+    int flag = 0;
 
     if(CheckSize(src) != CheckSize(dst))
     {
@@ -30,16 +24,11 @@ int CheckEnv(char **src,char **dst)
     {
         if(strlen(src[i]) != strlen(dst[i]))
         {
-            /*printf("%ld or asraf   %ld ",strlen(src[i]) , strlen(dst[i]));*/
-<<<<<<< HEAD
-            return i;
-        }
-        /*
-=======
+            printf("%ld or asraf   %ld ",strlen(src[i]) , strlen(dst[i]));
+            flag = 1;
             return (i);
         }
-        /* if you whant to print the env to check
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
+        /* if you whant to print the env to check */
                   for ( j = 0; j < strlen(dst[i]); ++j)
                   {
                       printf("%c",dst[i][j]);
@@ -50,18 +39,26 @@ int CheckEnv(char **src,char **dst)
                   {
                      printf("%c",src[i][j]);
                   }
-                 printf("\n");*/
+                 printf("\n");
+    }
+    if(flag == 1)
+    {
+    	    printf("\n\n CheckEnv not work \n\n");
+    }
+    else
+    {
+    	    printf("\n\n CheckEnv work  !!!!! \n\n");
     }
     return 0;
 
 }
 int checkJosuef()
 {
-    if( 0 != Josuef(0) || 35 != Josuef(49) || Josuef(522) != 21 || Josuef(999) != 975 || Josuef(99999999)!= 65782271 )
+    if(Josuef(49) != 35 || Josuef(52) != 21 || Josuef(10) != 97 )
     {
         printf("---Huston we have a problem! (Josephus calculations)---\n");
-        return 1;
-    };
+
+    }
 
     printf("---Josephus is good!---\n");
     return 0;
@@ -71,22 +68,21 @@ int checkJosuef()
 int main(int argc, char *argv[], char * envp[])
 {
     char **env = EnviormaenLow(envp);
-<<<<<<< HEAD
-    Josuef(5);
-=======
-    checkJosuef();
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
+    FreeEnv(env);
+
     PtintDataTypes();
 
    if( CheckEnv(envp,env) ==1)
    {
        return 1;
    }
-   FreeEnv(env);
-<<<<<<< HEAD
+   
+   checkJosuef();
+   
+   printf(" i pass the lines");
+
+
 
     return 0;
-=======
-   return 0;
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
+
 }

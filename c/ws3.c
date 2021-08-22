@@ -1,19 +1,14 @@
-<<<<<<< HEAD
-=======
+
 /*Written by : Or Asraf [ID - 311391874]
 August 2021
 Infinity Labs R&D*/
 
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
 #include<stdlib.h> /*malloc and sizeOf */
 #include<string.h> /*strlen */
 #include <stdio.h> /*print */
 #include <ctype.h> /* using in tolower*/
-<<<<<<< HEAD
 #include<math.h> /* using pow*/
-=======
-#include<math.h>   /* using pow*/
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
+
 
 #include "ws3.h"
 
@@ -34,10 +29,7 @@ void FreeEnv(char **env)
 int CheckSize(char **text)
 {
     int count = 0;
-<<<<<<< HEAD
-=======
 
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
     while(*text)
     {
         text++;
@@ -51,10 +43,7 @@ char **EnviormaenLow(char * envp[])
     int j=0 ,size_str = 0;
     char **env;
     int size = CheckSize(envp);
-<<<<<<< HEAD
-=======
 
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
     env = malloc(sizeof(*env) *(size + 1 ));
     if(env == NULL)
     {
@@ -65,7 +54,7 @@ char **EnviormaenLow(char * envp[])
         env[i] = malloc(sizeof(char) * (strlen(envp[i])+1) );
         if(env[i]==NULL)
         {
-            FreeEnv(env);/*if the allocation not sucsecfult we free the memory me use */
+            FreeEnv(env);
             return NULL;
         }
         size_str = strlen(envp[i]);
@@ -76,87 +65,50 @@ char **EnviormaenLow(char * envp[])
          env[i][(j )] = '\0';
         i++;
     }
-     env[i+1]=NULL;
+    
     return env;
+}
+
+int shift(int n)
+{
+    int pos = 0;
+
+    while (n != 0) 
+    {
+        pos++;
+        n = n >> 1;
+    }
+    return pos;
 }
 
 int Josuef(int n)
 {
-    int i = 0,m;
-    int a[32] = { 0 };
-    int b[33] = { 0 };
-    int winner = 0;
+    int place = shift(n);
+    int j = 1 << (place - 1);
 
-    if(n <= 2 )
+    if(n == 0)
     {
         return 1;
     }
-    for( m=n ; m > 0 ; i++)
-    {
-        a[i] = m%2 ;
-        m = m/2 ;
-    }
-    for( i=i-1 ; i >= 0 ; i--)
-    {
-        b[i+1] = a[i];
-    }
-    for ( i=32 ; i >= 0 ; i-- )
-    {
-        if(b[i] == 1 )
-        {
-            b[i] = 0;
-            break;
-        }
-    }
-    b[0]=1;
-    for( i = 0 ; i<32 ; i++)
-    {
-        if(b[i] == 1)
-        {
-            winner = winner + pow(2,i);
-        }
-    }
-    return winner;
+    n = n ^ j;
+    n = n << 1;
+    n = n | 1;
+    return n;
 }
-
 void PtintDataTypes()
 {
-    char c = 'c';
-    unsigned char uc ='v';
-    signed char sc = 'v';
-    int i =0;
-    unsigned int ui = 0;
-    short s = 0;
-    unsigned short us = s;
-    long l = 12;
-    unsigned long ul = 21;
-    long int li =1;
-    unsigned long int uli;
-<<<<<<< HEAD
-=======
-
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
-    printf("size of char :%ld "
-           "\nsize of unsigned char :%ld "
-           "\nsize of signed char  :%ld "
-           "\nsize of int :%ld "
-           "\nsize of unsigned int :%ld "
-           "\nsize of short :%ld "
-           "\nsize of unsigned short :%ld "
-           "\nsize of long :%ld "
-           "\nsize of unsigned long :%ld "
-           "\nsize of long int :%ld "
-           "\nsize of  unsigned long int :%ld \n"
-           ,sizeof(c),sizeof(uc),sizeof(sc),sizeof(i),sizeof(ui)
-           ,sizeof(s),sizeof(us),sizeof(l),sizeof(ul),sizeof(li)
-           ,sizeof(uli));
-
-<<<<<<< HEAD
+    int i = 0;
+    int arr[] ={sizeof(char) , sizeof(unsigned char) , sizeof(signed char),
+                sizeof( int) , sizeof(short int) , sizeof(unsigned short int ),
+                sizeof( unsigned int) , sizeof( short ) , sizeof(unsigned short) ,
+                sizeof(long), sizeof(unsigned long ) , sizeof(long int ) , sizeof (unsigned long int) };
+    char *name[]={ "char","unsigned char" ,"signed char","int","short int"
+                   ,"unsigned short int ","unsigned int","short","unsigned short"
+                   ,"long","unsigned long","long int","unsigned long int"};
 
 
-
-
-=======
->>>>>>> f03d0d1da89f531daecfd66191f4ffa9377826e3
+    for (i = 0; i < 12; ++i)
+    {
+        printf("size of %s  is :%d \n",name[i],arr[i]);
+    }
 }
-
