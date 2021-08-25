@@ -10,12 +10,15 @@
 
 
 
-#ifndef C_WS4_H
-#define C_WS4_H
+#ifndef _WS4_H_
+#define _WS4_H_
 
 #include<stdio.h>
 
-enum week{SUCCESSFULLY = 0, CANNOT_OPEN_THE_FILE = 1, CANNOT_DELETE_FILE = 2, Thur, Fri, Sat, Sun};
+enum error_handler{  SUCCESSFULLY = 0,
+            CANNOT_OPEN_THE_FILE = 1,
+            CANNOT_DELETE_FILE = 2
+        };
 
 typedef struct print_me
 {
@@ -25,18 +28,13 @@ typedef struct print_me
 } print_me;
 
 
-/*this file open file and write to the file line by line
+/*this FUNC open file and write to the file line by line
  * we hava 3 speciel flag
- * 1. -remove this fumcs delete the file for pc
+ * 1. -remove this fumcs delete the file for pc  -->RemoveFile
  * 2. -exit this funcs close the program
- * 3. -count this guncs count the number of lines in the file
+ * 3. -count this guncs count the number of lines in the file --> LinesCounter
  * 4. Operator '<' this operator go to begining of the file and the first line */
-int WriteFiles();
-
-int RemoveFile(char *filename);
-
-int LinesCounter(char *filename);
-
+enum error_handler  WriteFiles(const char *filename);
 
 void PrintStructs();
 

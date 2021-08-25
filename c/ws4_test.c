@@ -7,16 +7,18 @@
  * reviewer:
  *
  ******************************************************************************/
-
-
 #include "ws4.h"
 
 
 
-int main()
-{
-    PrintStructs();
-    WriteFiles("OrTest.txt");
 
-    return 0;
+int main(int argc ,char *argv[])
+{
+    int exit_status = 0;
+
+    PrintStructs();
+    printf("%d", exit_status);
+    exit_status = WriteFiles(argv[1]);
+
+    return (exit_status);
 }
