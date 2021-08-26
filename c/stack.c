@@ -1,4 +1,3 @@
-
 #include<stdlib.h>
 #include<stddef.h>
 #include<stdio.h>
@@ -21,6 +20,10 @@ stack_ty *StackCreate(size_t capacity)
     stack_ty  *stack;
     size_t i = 0;
     
+    if(capacity < 0)
+    {
+        return NULL;
+    }
     stack = (stack_ty*)malloc(sizeof(stack_ty));
 
     if(stack)
