@@ -10,7 +10,8 @@
 #include <stdlib.h> /* malloc */
 #include <assert.h> /* assert */
 
-#include "ws8.h"
+#include "stack.h"
+
 
 /****************************************************************************/
 

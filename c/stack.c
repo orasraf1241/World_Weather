@@ -1,9 +1,15 @@
-#include<stdlib.h>
-#include<stddef.h>
-#include<stdio.h>
-#include<assert.h>
+/****************************************************************************
+ * File Name: stack_.c													*
+ * Description:        			     										*
+ * Author: Or Asraf													*
+ * Date:25.08.21																*
+ * Reviewer: 																*
+ ****************************************************************************/
 
-#include "ws8.h"
+#include<stdlib.h> /* malloc free */
+#include<assert.h> /* using assert */
+
+#include "stack.h"
 
 
 
@@ -20,10 +26,6 @@ stack_ty *StackCreate(size_t capacity)
     stack_ty  *stack;
     size_t i = 0;
     
-    if(capacity < 0)
-    {
-        return NULL;
-    }
     stack = (stack_ty*)malloc(sizeof(stack_ty));
 
     if(stack)
