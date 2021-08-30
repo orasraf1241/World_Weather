@@ -11,7 +11,7 @@
 #include<stdio.h> /* printf ,scanf ,fopen ...*/
 #include<string.h> /* strlen ,strcmp*/
 
-#include "ws4.h"
+#include "ws5.h"
 
 #define MAX_STRING 500
 #define MAX_ARRAY 10
@@ -27,7 +27,7 @@ int RemoveFile(const char *filename)
     {
         return CANNOT_DELETE_FILE;
     }
-    return SUCCESSFULLY;
+    return (SUCCESSFULLY);
 }
 
 /* THis funcs count the number of line in "filename" file */
@@ -57,7 +57,7 @@ enum error_handler  LinesCounter(const char *filename)
     fclose(file);
 
     printf("The numbers of line in %s is %d",filename,count);
-    return SUCCESSFULLY;
+    return (SUCCESSFULLY);
 }
 
 
@@ -76,7 +76,7 @@ enum error_handler  WriteFiles(const char *filename)
 
     if (file == NULL)
     {
-        return CANNOT_OPEN_THE_FILE;
+        return (CANNOT_OPEN_THE_FILE);
     }
 
     while(strcmp(str,"-exit\n"))
@@ -86,7 +86,7 @@ enum error_handler  WriteFiles(const char *filename)
 
         if(!strcmp(str,"-remove\n"))
         {
-            return RemoveFile(filename);
+            return (RemoveFile(filename));
         }
 
         else if(!strcmp(str,"-count\n"))
@@ -116,7 +116,7 @@ enum error_handler  WriteFiles(const char *filename)
         }
     }
     fclose(file);
-    return flag;
+    return (flag);
 }
 
 /***************************************************************************************************/
