@@ -39,7 +39,7 @@ stack_ty *StackCreate(size_t capacity)
         stack->elements[i] = NULL;
     }
 
-    return stack;
+    return (stack);
      
 }
 
