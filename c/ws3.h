@@ -17,10 +17,11 @@
 /*this funcs check how whach pointer to pointer in this array */
 int CheckSize(char **text);
 
-/* This funcs take alll the enviorment var and save aim in new multi array
+/* This funcs take alll the enviorment var and save aim in new multi
+    This funcs take alll the enviorment var and save aim in new multi array
  * with lower words
  * ###DONT FORGET TO FREE THE MEMORY AFTER USING */
-char** EnviormaenLow(char * envp[]);
+int EnviormaenLow(char * envp[]);
 
 
 int Josuef(int n);

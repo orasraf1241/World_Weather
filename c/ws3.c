@@ -28,7 +28,7 @@ void FreeEnv(char **env)
 
 int CheckSize(char **text)
 {
-    int count = 0;
+    size_t count = 0;
 
     while(*text)
     {
@@ -37,37 +37,47 @@ int CheckSize(char **text)
     }
     return count;
 }
-char **EnviormaenLow(char * envp[])
+void ToLower(char *str)
 {
-    int i=0;
-    int j=0 ,size_str = 0;
-    char **env;
-    int size = CheckSize(envp);
-
-    env = malloc(sizeof(*env) *(size + 1 ));
-    if(env == NULL)
+    int i = 0;
+    for (;*(str+i);i++)
     {
-        return NULL;
+        *(str+i) = tolower(*(str+i));
     }
-    while (i != size)
+}
+
+
+int EnviormaenLow(char *envp[])
+{
+    char **tmp1 = NULL, **env = NULL;
+    int i = 0;
+
+
+    env = (char**)malloc(sizeof(char*) * CheckSize(envp));
+    for (tmp1 = envp; *tmp1 != 0; tmp1++)
     {
-        env[i] = malloc(sizeof(char) * (strlen(envp[i])+1) );
-        if(env[i]==NULL)
+        *(env + i) = (char*)malloc(sizeof(char)*(strlen(*tmp1)+1));
+
+        if (*(env + i) == NULL)
         {
+            printf("exited badly");
             FreeEnv(env);
-            return NULL;
+            return (0);
         }
-        size_str = strlen(envp[i]);
-        for ( j = 0; j < size_str; j++)
+        else
         {
-            env[i][j]=tolower(envp[i][j]);
+            *(env + i) = strcpy(*(env + i),*tmp1);
+            ToLower(*(env + i));
+            printf("%s\n", *(env + i));
         }
-         env[i][(j )] = '\0';
+
+
         i++;
     }
-    
-    return env;
+    FreeEnv(env);
+    return (1);
 }
+
 
 int shift(int n)
 {
@@ -111,4 +121,5 @@ void PtintDataTypes()
     {
         printf("size of %s  is :%d \n",name[i],arr[i]);
     }
+    
 }
