@@ -1,9 +1,8 @@
 /****************************************************************************
  * File Name: stack_.c													*
- * Description:        			     										*
  * Author: Or Asraf													*
  * Date:25.08.21																*
- * Reviewer: 																*
+ * Reviewer:omri 																*
  ****************************************************************************/
 
 #include<stdlib.h> /* malloc free */
@@ -23,7 +22,7 @@ struct stack
 /* it this funcs we are create the stack and inistall all the data*/
 stack_ty *StackCreate(size_t capacity)
 {
-    stack_ty  *stack;
+    stack_ty  NULL;
     size_t i = 0;
     
     stack = (stack_ty*)malloc(sizeof(stack_ty));
@@ -33,10 +32,13 @@ stack_ty *StackCreate(size_t capacity)
         stack->elements = (void **)malloc(sizeof(void*) * capacity);
         stack->top = 0;
         stack->capacity = capacity;
+        if(stack->elements)
     }
+
     for (; i < capacity; i++)
     {
         stack->elements[i] = NULL;
+        if(stack->elements[i] ==)
     }
 
     return (stack);
@@ -50,11 +52,6 @@ void StackDestroy(stack_ty *stack)
     size_t size = stack->capacity;
 
 
-    for (; i < size ; i++)
-    {
-        free(stack->elements[i]);
-        stack->elements[i]=NULL;
-    }
     free(stack->elements);
     stack->elements = NULL;
 
@@ -66,9 +63,12 @@ void StackDestroy(stack_ty *stack)
 void StackPush(stack_ty *stack, void *element)
 {
     assert( (stack) && (element) );
-
-    stack->top += 1 ;
-    stack->elements[stack->top] = element;  
+    if(stack->top+1 < capacity)
+    {
+        stack->top += 1 ;
+        stack->elements[stack->top] = element;  
+    }
+    
 }
 
 
@@ -83,7 +83,7 @@ void StackPop(stack_ty *stack)
 
 void *StackPeek(const stack_ty *stack)
 {
-    return (stack->elements[stack->top]);
+    return (stack->elements[stack->top -1]);
 }
 
 
