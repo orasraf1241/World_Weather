@@ -27,7 +27,7 @@ int EnviormaenLow(char * envp[]);
 int Josuef(int n);
 
 /* free all the data we are alocated */
-void FreeEnv(char **env);
+void FreeEnv(char **env,int size);
 
 
 #endif

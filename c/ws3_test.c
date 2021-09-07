@@ -12,11 +12,12 @@
 
 int checkJosuef()
 {
-    if(Josuef(49) != 35 || Josuef(52) != 21 || Josuef(10) != 97 )
+ if(Josuef(49) != 35 || Josuef(52) != 41 || Josuef(10) != 5 )
     {
         printf("---Huston we have a problem! (Josephus calculations)---\n");
-
+        printf("49 is -> %d\n 52 is ->%d\n 10 is %d",Josuef(49),Josuef(52),Josuef(10));
     }
+ 
 
     printf("---Josephus is good!---\n");
     return 0;

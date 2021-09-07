@@ -12,12 +12,13 @@ Infinity Labs R&D*/
 
 #include "ws3.h"
 
-void FreeEnv(char **env)
+void FreeEnv(char **env,int size)
 {
     char **cp = env;
-
-    while(*cp)
-    {
+    int i = 0;
+    
+    for(; i < size ; i++)
+     {
         free(*cp);
         *cp = NULL;
         cp++;
@@ -26,6 +27,7 @@ void FreeEnv(char **env)
     env = NULL;
 }
 
+/*return the number of line in env */
 int CheckSize(char **text)
 {
     size_t count = 0;
@@ -37,6 +39,8 @@ int CheckSize(char **text)
     }
     return count;
 }
+
+/* this funcs take ptr to string and change all the uppercase to lowercase */
 void ToLower(char *str)
 {
     int i = 0;
@@ -47,6 +51,7 @@ void ToLower(char *str)
 }
 
 
+/*take the all the enviorment var and print aim with lowercase */
 int EnviormaenLow(char *envp[])
 {
     char **tmp1 = NULL, **env = NULL;
@@ -61,7 +66,7 @@ int EnviormaenLow(char *envp[])
         if (*(env + i) == NULL)
         {
             printf("exited badly");
-            FreeEnv(env);
+            FreeEnv(env,i);
             return (0);
         }
         else
@@ -74,7 +79,7 @@ int EnviormaenLow(char *envp[])
 
         i++;
     }
-    FreeEnv(env);
+    FreeEnv(env,i);
     return (1);
 }
 
@@ -105,6 +110,9 @@ int Josuef(int n)
     n = n | 1;
     return n;
 }
+
+
+
 void PtintDataTypes()
 {
     int i = 0;
@@ -112,6 +120,7 @@ void PtintDataTypes()
                 sizeof( int) , sizeof(short int) , sizeof(unsigned short int ),
                 sizeof( unsigned int) , sizeof( short ) , sizeof(unsigned short) ,
                 sizeof(long), sizeof(unsigned long ) , sizeof(long int ) , sizeof (unsigned long int) };
+                
     char *name[]={ "char","unsigned char" ,"signed char","int","short int"
                    ,"unsigned short int ","unsigned int","short","unsigned short"
                    ,"long","unsigned long","long int","unsigned long int"};
