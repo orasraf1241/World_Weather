@@ -1,118 +1,157 @@
-#include<stdlib.h>
-#include<stdio.h>
+/*************************************************************
+*   Author: Or Asraf
+*   Decription: vector
+*   Reviewd by: 
+*   File name: vector.c
+**************************************************************/
 
+#include <stddef.h> /* size_t */
+#include <stdlib.h> /* malloc, free */
 #include "vector.h"
-#define MULTIPLICATION 2
 
 
-struct vector {
-void **array;
-size_t size;
-size_t capacity;
+enum error_handler
+{  SUCCESSFULLY = 0,
+   ERROR_ALLOCATION = 1,
+   BIG_INDEX = 2 
 };
 
 
-/*O(1)*/
-vector_t *VectorCreate(size_t capacity)
-{
-    vector_t *vector;
-    size_t i = 0;
-    
-    vector = (vector_t*)malloc(sizeof(vector_t));
 
-    if(vector)
+ struct vector 
+ {
+    void **elements;
+    size_t size;
+    size_t capacity;
+};
+
+/*Create vector object, test for successfull allocation
+return
+initialized vector pointer if succeeded
+NULL if failed*/
+
+vector_t *CreateVector(size_t capacity)
+{
+    vector_t *vector = NULL;
+    size_t i = 0;
+
+    vector = (vector_t*)malloc(sizeof(vector_t)); 
+
+    if(!vector)
     {
-        vector->array = (void **)malloc(sizeof(void*) * capacity);
-        vector->size = 0;
-        vector->capacity = capacity;
+        return (NULL);
     }
-    for (; i < capacity; i++)
+
+    vector -> elements = (void**)malloc(sizeof(void*) * capacity);
+    
+    if(!(vector -> elements))
     {
-        vector->array[i] = NULL;
+        free(vector);
+        vector = NULL;
+        return vector;
     }
-    return vector;
+
+    for (;i<capacity;i++)
+    {
+        vector -> elements[i] = NULL;
+    }
+    vector -> size = 0;
+    vector -> capacity = capacity;
+    return vector; 
 }
 
- /*
- /*O(1) , if reallocation happenes O(n)*/
+/* return vector size */
+size_t VectorSize(const vector_t *v)
+{
+    return v -> size;
+}
+
+size_t VectorCapacity(const vector_t *v)
+{
+    return v -> capacity;
+}
+
 int VectorAppend(vector_t *v, void *element)
 {
-    if(v->size+1 == v->capacity)
+    void **tmp_ptr;
+    if ((v -> size + 1) > v -> capacity)
     {
-        v = realloc(v, v->capacity * MULTIPLICATION);
-    }
-    if(v == NULL)
-    {
-        perror("Error (re)allocating memory");
-        return ERROR_ALLOCATION;
-    }
-    v->array[v->size] = element;
-    v->size++;
-    return SUCCESSFULLY;
+        tmp_ptr = (void**)realloc(v -> elements, sizeof(void*) * 2 * v -> capacity);
+        
+        if (!(tmp_ptr))
+        {
+            return ERROR_ALLOCATION;
+        }
+        else
+        {
+            v -> elements = tmp_ptr;
+            v -> capacity *= 2;
+        }
 
+    }
+    v -> elements[v -> size] = element;
+    v -> size++;
+    return SUCCESSFULLY;
 }
 
-
-/*O(1) this func insert the element to vector in the index the user*/
-int VectorSet(vector_t *v, size_t index, void *element)
+int VectorSet(const vector_t *v, size_t index, void *element)
 {
-    if(index > v->size)
+    if (index > v -> size)
     {
         return BIG_INDEX;
     }
     else
     {
-        v->array[index] = element;
+        v -> elements[index] = element;
     }
     return SUCCESSFULLY;
 }
 
-/*O(1)*/
-void *VectorGet(vector_t *v, size_t index)
-{
-    return v->array[index];
-}
-
-/*O(1)*/
-void VectorPop(vector_t *v)
-{
-    v->array[v->size] = NULL;
-    v->size--;
-}
-
-/*O(1)*/
-size_t VectorSize(vector_t *v)
-{
-    return v->size;
-}
-
-size_t VectorCapacity(const vector_t *v)
-{
-    return v->capacity;
-}
-
 void VectorDestroy(vector_t *v)
 {
-    size_t i = 0;
-    size_t size = v->capacity;
-
-
-    for (; i < size ; i++)
-    {
-        free(v->array[i]);
-        v->array[i]=NULL;
-    }
-    free(v->array);
-    v->array = NULL;
-
+    free(v->elements);
+    v -> elements = NULL;
     free(v);
-    v = NULL;   
+    v = NULL;
 }
 
-void VectorHalfCapacity(vector_t *v)
+
+void *VectorGet(const vector_t *v, size_t index)
 {
-    assert(v);
-    
-
-
+    if (index >= v -> size)
+    {
+        return NULL;
+    }
+    else
+    {
+        return v -> elements[index];
+    }
 }
+
+/*Remove the last element in the vector*/
+void VectorPop(vector_t *v)
+{
+    void **tmp = NULL;
+    tmp = v -> elements;
+
+
+    if (v -> size > 0)
+    {
+        v -> size --;
+        v -> elements[v -> size] = NULL;
+
+        if (v -> size < v -> capacity/2)
+        {
+            v -> capacity /= 2;
+            v -> elements = (void**)realloc(v -> elements,sizeof(void*)*v -> capacity);
+            if (!v->elements)
+            {
+                v->elements = tmp;
+            }
+        }
+    }
+}
+
+
+
+
