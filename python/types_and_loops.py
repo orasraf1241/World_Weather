@@ -55,7 +55,5 @@ def main():
     grades(76)
     print("Hello World!")
 
-
-chr
 if __name__ == "__main__":
     main()

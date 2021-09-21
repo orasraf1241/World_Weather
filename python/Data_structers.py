@@ -1,8 +1,6 @@
 
-def squerd_numbers(list):
+def squerd_numbers1(list):
     """ this funcs print all the squered number between 1 to 100"""
-    count = 1
-
     for x in range(1,11):
         x = x ** 2
         list.append(x)
@@ -10,11 +8,13 @@ def squerd_numbers(list):
     print("Ex1\n",list )
     del list
 
-    list =  []
+def squerd_numbers2(list):
+    count = 1
 
     while(count < 11):
         list.append(count ** 2)
         count += 1
+
     print(list ,"\n\n")
 
 
@@ -23,7 +23,7 @@ def even_numbers(list = []):
     count = 0
 
     for x in range(0,101):
-        if(x %2 == 0 ):
+        if(x % 2 == 0 ):
             list.append(x)
 
     print("Ex2\n",list )
@@ -40,8 +40,10 @@ def even_numbers(list = []):
 def dict_str(str):
     "this functs create dict from string and return the dict "
     dict = {}
+
     for x in str:
         dict[x] = dict.get(x,0) +1
+
     print("Ex3\n",dict ,"\n\n")
     return dict
 
@@ -71,6 +73,7 @@ def is_contining(list1 , list2):
 
     """option 3 """
     it = 0
+
     if(len(list1) == len(list2)):
         while(it < len(list1)):
             if(list1[it] != list2[it]):
@@ -83,6 +86,7 @@ def is_contining(list1 , list2):
 
 
 def rotation(list,roatt = 0):
+    """option 1"""
     print("\n\n before rotation :",list)
     list = list[roatt:] + list[:roatt]
     print("after rotation",list)
@@ -90,9 +94,13 @@ def rotation(list,roatt = 0):
 
 def main():
     list = []
-    squerd_numbers(list)
+
+    squerd_numbers1(list)
+    squerd_numbers2(list)
+
     del list
     list = []
+
     even_numbers(list)
     dict_str(["or","asraf", " is","is","or", "or asraf"])
 
