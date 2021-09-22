@@ -1,4 +1,5 @@
 def div(a, b):
+    """This funcs divide to numbers"""
     try:
         return a / b
     except ZeroDivisionError:
@@ -8,6 +9,9 @@ def div(a, b):
         print("Your input not good")
 
 
+
 if __name__ == "__main__":
     div(1, "0")
     div(1, 0)
+    print(div(1, 5))
+
