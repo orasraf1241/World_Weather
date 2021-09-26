@@ -15,5 +15,5 @@ if __name__ == "__main__":
     _foo()
 
     var = "or"
-    print(tal.revers(123456))  # EX2
+    tal.revers(123456)  # EX2
     is_global_var('var')

@@ -6,4 +6,4 @@ def _bar():
     print("_bar")
 
 
-__all__ = ['bar', '_bar']
+

@@ -14,4 +14,4 @@ if __name__ == "__main__":
     div(1, "0")
     div(1, 0)
     print(div(1, 5))
-
+    print("File1 __name__ = %s" %__name__)
