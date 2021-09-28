@@ -2,12 +2,13 @@ def div(a, b):
     """This funcs divide to numbers"""
     try:
         return a / b
+        print("or asrf")
     except ZeroDivisionError:
         print("tried to divide by zero")
         return None
     except TypeError:
         print("Your input not good")
-
+    print("or as212")
 
 
 if __name__ == "__main__":
