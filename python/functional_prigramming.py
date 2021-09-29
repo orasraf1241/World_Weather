@@ -26,7 +26,7 @@ def sigma3(*numbers):
 # -------------------Ex2-------------------
 def even_list():
     """Exercises 2 this fumcs print all the even number from 1 to 100 """
-    return [x if x % 2 == 0 else "even" for x in range(100)]
+    return [x if x % 2 == 0 else "odd" for x in range(100)]
 
 
 # -------------EX3__----------------------------------
@@ -61,9 +61,17 @@ def seven_boom3(number):
 
 
 # ----------------------------EX4----------------------------------------------
-def lst_to_dict(list1):
+def list_to_dict(list1):
     """This func take list and create dict"""
     return {num: list1[num] for num in range(len(list1))}
+
+
+def list_to_dict1(list1):
+    """This func take list and create dict"""
+    dict1 = {}
+    for index, value in enumerate(list1):
+        dict1[index] = value
+    return dict1
 
 
 # -----------------------------EX5----------------------------------------------
@@ -93,23 +101,22 @@ def make_adder(num1):
 
 
 def orasraf(*args):
-    print("asdasd")
-    print(args)
+    print(type(args))
 
 
 if __name__ == "__main__":
     # list_com()
     # dictionary_comprehension()
     # set_comprehension()
-    print(sigma1(10, 20, 30))
-    print(sigma2(10, 20, 30))
-    print(sigma3(10, 20, 30))
-    even_list()
-    print(seven_boom1(100))
-    print(seven_boom2(100))
-    print(seven_boom3(100))
-    lst_to_dict(['a', 'b', 'c', 'd'])
-    orasraf(1, "or", 2)
-    check_hello(1, 2, 3, name="hello")
-    tmp = make_adder(5)
-    print(tmp(3))
+    # print(sigma1(10, 20, 30))
+    # print(sigma2(10, 20, 30))
+    # print(sigma3(10, 20, 30))
+    # even_list()
+    # print(seven_boom1(100))
+    # print(seven_boom2(100))
+    # print(seven_boom3(100))
+    # orasraf(1, "or", 2)
+    # check_hello(1, 2, 3, name="hello")
+    # tmp = make_adder(5)
+    print(sum('a','xsa'))
+

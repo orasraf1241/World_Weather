@@ -15,7 +15,12 @@ class Point:
             print("you need to insert a number ")
 
     def distance_from_origin(self):
-        return math.sqrt(self.x**2 + self.y ** 2)
+        """this func check the distance"""
+        return math.sqrt(self.x ** 2 + self.y ** 2)
+
+    def __str__(self):
+        rep = 'this is point the x vlaue is:' + str(self.x) + 'and y is:' + str(self.y)
+        return rep
 
 
 class X:
@@ -38,11 +43,26 @@ class D(B):
     def foo(self):
         return "D"
 
+    def bar(self):
+        print("or is the king")
+
+
+class E(D):
+    def foo(self):
+        return "E"
+
 
 if __name__ == "__main__":
     """question 11"""
+    b = B()
+    d = D()
+    e = E()
+    e.bar()
 
+    print(issubclass(TypeError, BaseException))
     a = Point(1, 1)
-    print(a.distance_from_origin())
-    print(a.x, a.y)
-
+    # for i in a.__dict__:
+    #     print(i)
+    print(a.__repr__())
+    # print(a.distance_from_origin())
+    # print(a.x, a.y)
