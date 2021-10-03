@@ -30,6 +30,24 @@ class Point:
         y = self.y + other.y
         return Point(x, y)
 
+    def __iadd__(self, other):
+        """this method take 2 Point and addition aim and return new point"""
+        self.x += other.x
+        self.y += other.y
+        return self
+
+    def __sub__(self, other):
+        """this method take 2 Point and sun aim and return new point"""
+        x = self.x - other.x
+        y = self.y - other.y
+        return Point(x, y)
+
+    def __isub__(self, other):
+        """this method take 2 Point and sun aim and return new point"""
+        self.x -= other.x
+        self.y -= other.y
+        return self
+
     def __mul__(self, other):
         x = self.x * other.x
         y = self.y * other.y
@@ -43,6 +61,18 @@ class Point:
     def __len__(self):
         return len(self.__dict__)
 
+    def __truediv__(self, other):
+        if other.x != 0 and other.y != 0:
+            x = self.x / other.x
+            y = self.y / other.y
+        return Point(x, y)
+
+    def __itruediv__(self, other):
+        if other.x != 0:
+            self.x /= other
+            self.y /= other
+        return self
+
     @staticmethod
     def get_counter():
         return Point.__counter
@@ -54,8 +84,11 @@ class Point:
 
 if __name__ == "__main__":
     """EX1 """
-    a = Point(1, 2.5)
-    b = Point(2, 3.5)
+    a = Point(2, 2)
+    b = Point(2, 2)
+    c = Point(1, 2, 3)
+    # a /= 2
+    print(c)
     a.z = 5
 
     print(a.__len__())
@@ -65,7 +98,6 @@ if __name__ == "__main__":
     print(id(a))
 
     p1_id = id(a)
-    a *= 2
     print(a)
     print(id(a) == p1_id)
 
