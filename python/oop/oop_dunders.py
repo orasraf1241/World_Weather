@@ -84,27 +84,28 @@ class Point:
 
 if __name__ == "__main__":
     """EX1 """
-    a = Point(2, 2)
-    b = Point(2, 2)
-    c = Point(1, 2, 3)
-    # a /= 2
-    print(c)
-    a.z = 5
-
-    print(a.__len__())
-
-    """EX2"""
-    # print(a*b)
-    print(id(a))
-
-    p1_id = id(a)
-    print(a)
-    print(id(a) == p1_id)
-
-    list_of_point = []
-    for i in range(10):
-        list_of_point.append(Point())
     print(Point.get_counter())
-    for i in range(10):
-        list_of_point[i].__del__()
-    print(Point.get_counter())
+    # a = Point(2, 2)
+    # b = Point(2, 2)
+    # c = Point(1, 2, 3)
+    # # a /= 2
+    # print(c)
+    # a.z = 5
+    #
+    # print(a.__len__())
+    #
+    # """EX2"""
+    # # print(a*b)
+    # print(id(a))
+    #
+    # p1_id = id(a)
+    # print(a)
+    # print(id(a) == p1_id)
+    #
+    # list_of_point = []
+    # for i in range(10):
+    #     list_of_point.append(Point())
+    # print(Point.get_counter())
+    # for i in range(10):
+    #     list_of_point[i].__del__()
+    # print(Point.get_counter())

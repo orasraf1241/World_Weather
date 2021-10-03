@@ -62,7 +62,6 @@ class Example:
 
 
 
-
 # __call__ method will be called
 if __name__ == "__main__":
     p1 = Point(1, 2)
