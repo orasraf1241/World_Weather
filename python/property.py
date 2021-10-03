@@ -32,6 +32,7 @@ class Point:
         """Delete method for x """
         print("You cant delete x")
 
+
     @property
     def y(self):
         return self.__y
@@ -122,11 +123,13 @@ if __name__ == "__main__":
     """EX1"""
     p = Point(3, 3)
     p.x = 10
+    del p.x
     print(p)
+
 
     """EX2"""
     a = X(0)
     print(a.x)
     a.x = 1
-    print(a.x)
+    print(dir(a))
     del (a.x)
