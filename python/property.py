@@ -1,16 +1,14 @@
-import numbers
+from numbers import Number
 
 
 class Point:
     """this class create point you cant insert only int by defult is (0,0)"""
-    __counter = 0
 
     def __init__(self, x=0.0, y=0.0):
-        """ Exercises 1 bulid constructor"""
-        if isinstance(x, numbers.Number) and isinstance(y, numbers.Number):
+        """ Exercises 1 build constructor"""
+        if isinstance(x, Number) and isinstance(y, Number):
             self.__x = float(x)
             self.__y = float(y)
-            Point.__counter += 1
         else:
             self.x = 0
             self.y = 0
@@ -22,7 +20,7 @@ class Point:
 
     @x.setter
     def x(self, val):
-        if isinstance(val, numbers.Number):
+        if isinstance(val, Number):
             self.__x = val
         else:
             raise TypeError("You need to insert a number !")
@@ -35,6 +33,7 @@ class Point:
 
     @property
     def y(self):
+        """getter method"""
         return self.__y
 
     @y.setter
@@ -100,6 +99,7 @@ class Property:
 
 class X:
     def __init__(self, val):
+        """Constructor"""
         self.__x = int(val)
 
     @Property
@@ -131,5 +131,4 @@ if __name__ == "__main__":
     a = X(0)
     print(a.x)
     a.x = 1
-    print(dir(a))
     del (a.x)
