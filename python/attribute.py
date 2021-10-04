@@ -21,15 +21,29 @@ class Y:
     def __setattr__(self, key, value):
         """Exception is raised when trying to add new attribute"""
         if key == 'a':
-            super(Y, self).__setattr__(key, value)
+            self.a = value
         else:
             raise AttributeError("you cant add a new attribute")
 
 
 if __name__ == "__main__":
-    a = X(1)
-    y = Y(1)
-    print(a.a)
-    print(y.a)
-    y.x = 5
-    X(1).b
+    x = X(5)
+    if x.b:
+        print("test failed __slots__")
+    else:
+        print("successful , __slots__")
+
+    x.b = 10
+    if x.b:
+        print("X __slots__")
+    else:
+        print("test successful ,__slots__ ")
+
+    y = Y(10)
+
+    try:
+        y.b = 5
+    except AttributeError:
+        print("successful ,__setattr__")
+    else:
+        print("test failed, __setattr__")
