@@ -1,5 +1,5 @@
 import math
-import numbers
+from numbers import Number
 
 
 class Point:
@@ -7,14 +7,11 @@ class Point:
     __counter = 0
 
     def __init__(self, x=0.0, y=0.0):
-        if isinstance(x, numbers.Number) and isinstance(y, numbers.Number):
+        if isinstance(x, Number) and isinstance(y, Number):
             self.x = float(x)
             self.y = float(y)
-            Point.__counter += 1
         else:
-            self.x = 0
-            self.y = 0
-            print("you need to insert a number ")
+            raise TypeError("you need to insert int or float")
 
     def __del__(self):
         Point.__counter -= 1

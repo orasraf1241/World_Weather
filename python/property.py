@@ -26,10 +26,9 @@ class Point:
             raise TypeError("You need to insert a number !")
 
     @x.deleter
-    def x(self):
+    def x1(self):
         """Delete method for x """
         print("You cant delete x")
-
 
     @property
     def y(self):

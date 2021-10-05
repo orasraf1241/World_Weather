@@ -112,3 +112,4 @@ if __name__ == "__main__":
     d = DefaultDict(0)
     d['a'] = 'hello'
     print(d['b'])
+    print(d['a'])
