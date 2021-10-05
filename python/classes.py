@@ -10,9 +10,7 @@ class Point:
             self.x = float(x)
             self.y = float(y)
         else:
-            self.x = 0
-            self.y = 0
-            print("you need to insert a number ")
+            raise TypeError("you need to insert a number ")
 
     def distance_from_origin(self):
         """this func check the distance"""

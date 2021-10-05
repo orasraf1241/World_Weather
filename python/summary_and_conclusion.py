@@ -98,8 +98,8 @@ class DefaultDict:
 
 
 if __name__ == "__main__":
-    # print(name_of_file("/home/or/Desktop/infinity/git 2/python/oop.py"))
-    # convert_to_cap("/home/or/Desktop/infinity/git 2/python/oop.py")
+    # print(name_of_file("/home/or/Desktop/infinity/git 2/python/classes.py"))
+    # convert_to_cap("/home/or/Desktop/infinity/git 2/python/classes.py")
     # using_lambada()
     # print(is_prime(47), is_prime(44))
     # list_withot_dunders()

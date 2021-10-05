@@ -67,8 +67,8 @@ if __name__ == "__main__":
     p1 = Point(1, 2)
     p5 = p1.__dict__
     p2 = Point(1, 2)
-    print(p1.foo.__doc__)
-    print(id(p1))
+    print(dir(p1))
+    print(p1.__dict__)
     p1 += p2
     print(id(p1))
     foo, bar = bar, foo
