@@ -1,4 +1,1 @@
-
-if __name__ == "__main__":
-
-    print(id(A))
+__all__ = ['bar', '_bar', 'foo', '_foo']
